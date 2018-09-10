@@ -1,6 +1,7 @@
 # TramStops
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
+Application to check the tram stops in Alicante
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3. 
 
 ## Development server
 
