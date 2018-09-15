@@ -1,6 +1,6 @@
 import { IStop }  from './stop.interface';
 
-export interface Line {
+export interface ILine {
     name:string,
-    Stops:IStop[]
+    Stops:object[]   
 }

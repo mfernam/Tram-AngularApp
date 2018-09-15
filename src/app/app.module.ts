@@ -7,6 +7,7 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { APP_ROUTING } from './routes';
 /*SERVICES*/
 import { MapService } from './services/map.service';
+import { LineService } from './services/lines.service';
 import { SearchService } from './services/search.service';
 /*COMPONENTS*/
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { NavBarComponent } from './components/shared/nav-bar/nav-bar.component';
 import { MapComponent } from './components/map/map.component';
 import { HomeComponent } from './components/home/home.component';
 import { ResultComponent } from './components/result/result.component';
+import { StopLineComponent } from './components/stop-line/stop-line.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { ResultComponent } from './components/result/result.component';
     NavBarComponent,
     MapComponent,
     HomeComponent,
-    ResultComponent
+    ResultComponent,
+    StopLineComponent
   ],
   imports: [
     NgbModule,
@@ -31,7 +34,8 @@ import { ResultComponent } from './components/result/result.component';
   ],
   providers: [
     MapService,
-    SearchService
+    SearchService,
+    LineService
   ],
   bootstrap: [
     AppComponent,

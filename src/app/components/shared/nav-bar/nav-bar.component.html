@@ -11,10 +11,17 @@
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link"  [routerLink]="['map']">Map</a>
         </li>
+        <li class="nav-item" routerLinkActive="active">
+            <select class="form-control" (change)="$event.target.value">
+              <option> -- Select Line -- </option>
+              <option *ngFor="let line of _lines" [value]="line.name">{{line.name}}</option>
+            </select>
+        </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search stop" aria-label="Search">
-        <button class="btn btn-outline-default my-2 my-sm-0" type="submit">Search</button>
+        <input class="form-control mr-sm-2" type="search" placeholder="Search stop" aria-label="Search"
+        (keyup.enter)="searchStop(searchStop.value)" #searchStop>
+        <!--<button class="btn btn-outline-default my-2 my-sm-0" type="submit">Search</button>-->
       </form>
     </div>
   </nav>
