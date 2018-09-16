@@ -6,8 +6,8 @@ import { StopLineComponent } from './components/stop-line/stop-line.component';
 const APP_ROUTES: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'map', component: MapComponent },
-  { path: 'map/:nameLine', component: MapComponent },
-  { path: 'stopLine/:nameLine', component: StopLineComponent },
+  { path: 'map/:idLine', component: MapComponent },
+  { path: 'stopLine/:idLine', component: StopLineComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 

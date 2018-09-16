@@ -1,6 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { icon, latLng, Map, marker, tileLayer, Layer, Marker, LayerGroup  } from 'leaflet';
+import { icon, latLng, marker, tileLayer, Layer,LayerGroup  } from 'leaflet';
 import { LineService } from '../../services/lines.service';
 
 const streetMaps = tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -30,15 +30,19 @@ export class MapComponent implements OnInit{
 
   constructor(private lineService:LineService,
               private activateRoute:ActivatedRoute){
-              
-    this._stops = lineService.getStops("Linea 3")
-    this.setMarkers(this._stops);
+                
   }
+  onMapReady(map) {
+    setTimeout(() => {map.invalidateSize(true)},1000);
+    // map.invalidateSize(true);
+    }
 
   ngOnInit() {
     this.activateRoute.params.subscribe(params=>{
-      if(params['name']!= null){
-        this._stops = this.lineService.getStops(params['name']);
+      if(params['idLine']!= null){
+        this.markersLayer.clearLayers();
+        this._stops = this.lineService.getStops(params['idLine']);
+        this.setMarkers(this._stops);
       }
     })
   }
@@ -66,7 +70,7 @@ export class MapComponent implements OnInit{
           icon: icon({
             iconSize: [ 25, 41 ],
             iconAnchor: [ 13, 41 ],
-            iconUrl: 'assets/images/rail_stop.png'
+            iconUrl: 'assets/images/train.png'
           })
         });
         this.markersLayer.addLayer(newMarker.bindPopup(stop.name));

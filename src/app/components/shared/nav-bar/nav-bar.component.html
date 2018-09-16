@@ -12,9 +12,9 @@
           <a class="nav-link"  [routerLink]="['map']">Map</a>
         </li>
         <li class="nav-item" routerLinkActive="active">
-            <select class="form-control" (change)="$event.target.value">
-              <option> -- Select Line -- </option>
-              <option *ngFor="let line of _lines" [value]="line.name">{{line.name}}</option>
+            <select class="form-control" (change)="getLine($event.target.value)">
+              <option value="0"> -- Select Line -- </option>
+              <option *ngFor="let line of _lines" [value]="line.id">{{line.name}}</option>
             </select>
         </li>
       </ul>

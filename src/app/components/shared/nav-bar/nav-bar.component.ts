@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { LineService} from '../../../services/lines.service';
 import { ILine } from '../../../interfaces/line.interface';
 
@@ -12,7 +13,8 @@ export class NavBarComponent  {
   _lines:ILine[]=[];
   _line:ILine;
 
-  constructor(private lineService:LineService) {
+  constructor(private lineService:LineService,
+    private _router:Router) {
     this._lines = this.lineService.getLines();
    }
     
@@ -20,11 +22,14 @@ export class NavBarComponent  {
     this.lineService.getStops(lineName);
    }
 
-   onChange(deviceValue) {
-    console.log(deviceValue);
-  }
+   getLine(idLine:string){
+     if(idLine!="0"){
+      this._router.navigate(['/map',idLine]);
+     }
+     
+   }
 
   searchStop(nameLine:string){
-    
+
   }
 }

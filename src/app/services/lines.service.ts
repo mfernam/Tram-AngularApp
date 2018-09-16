@@ -380,27 +380,45 @@ export class LineService {
       }
     ];
 
+  //#region Tram lines objects
   _linea1:ILine={
+    id: "L1",
     name: "Linea 1",
     Stops: this._stopsLinea1
   }
+  _linea2:ILine={
+    id: "L2",
+    name: "Linea 2",
+    Stops: []
+  }
   _linea3:ILine={
+    id: "L3",
     name: "Linea 3",
     Stops: this._stopsLinea3
+  }  
+  _linea4:ILine={
+    id: "L4",
+    name: "Linea 4",
+    Stops: []
+  }
+  _linea9:ILine={
+    id: "L9",
+    name: "Linea 9",
+    Stops: []
   }
    _lineas:ILine[]=[
      this._linea1,
      this._linea3
    ];
-   
+   //#endregion
 
   public getLines(){
     return this._lineas;
   }
 
-  public getStops(lineName:string){ 
+  public getStops(idName:string){ 
    for(let _line of this._lineas){
-     if(_line.name == lineName){
+     if(_line.id == idName){
        return _line.Stops;
      }
    }
