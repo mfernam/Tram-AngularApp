@@ -212,7 +212,11 @@ export class LineService {
         name: "Albufereta",
         line: 3,
         orderUp:6,
-        orderDown: 12 
+        orderDown: 12,
+        coordinates: [
+          -0.4426610469818115,
+          38.36670301930792
+        ] 
       },
       {
         name: "Alicante - Luceros",
@@ -228,55 +232,91 @@ export class LineService {
         name: "Campo de Golf",
         line: 3,
         orderUp:9,
-        orderDown: 9
+        orderDown: 9,
+        coordinates: [
+          -0.4218900203704834,
+          38.377612548026796
+        ]
       },
       {
         name: "Carrabiners",
         line: 3,
         orderUp:11,
-        orderDown: 7
+        orderDown: 7,
+        coordinates: [
+          -0.4083824157714844,
+          38.38856247916073
+        ]
       },
       {
         name: "Condomina",
         line: 3,
         orderUp:8,
-        orderDown: 10
+        orderDown: 10,
+        coordinates: [
+          -0.42876720428466797,
+          38.37476125711419
+        ]
       },
       {
         name: "Costa Blanca",
         line: 3,
         orderUp:10,
-        orderDown: 8
+        orderDown: 8,
+        coordinates: [
+          -0.41102170944213867,
+          38.3791096410374
+        ]
       },
       {
         name: "El Campello",
         line: 3,
         orderUp:17,
-        orderDown: 1
+        orderDown: 1,
+        coordinates: [
+          -0.39488017559051514,
+          38.428050872075374
+        ]
       },
       {
         name: "Fabraquer",
         line: 3,
         orderUp:14,
-        orderDown: 4
+        orderDown: 4,
+        coordinates: [
+          -0.401923656463623,
+          38.41247499654237
+        ]
       },
       {
         name: "La Isleta",
         line: 3,
         orderUp:5,
-        orderDown: 13
+        orderDown: 13,
+        coordinates: [
+          -0.44756412506103516,
+          38.362475870873475
+        ]
       },
       {
         name: "Les Llances",
         line: 3,
         orderUp:13,
-        orderDown: 5
+        orderDown: 5,
+        coordinates: [
+          -0.4044020175933838,
+          38.405009490246464
+        ]
       },
       {
         name: "Lucentum",
         line: 3,
         orderUp:7,
-        orderDown: 11
+        orderDown: 11,
+        coordinates: [
+          -0.4388415813446045,
+          38.37003409070623
+        ]
       },
       {
         name: "MARQ - Castillo",
@@ -294,33 +334,49 @@ export class LineService {
         orderUp:2,
         orderDown: 16,
         coordinates: [
-          -0.47623157501220703,
-          38.352106745089706
+          -0.4845035076141358,
+          38.348295244914475
         ]
       },
       {
         name: "Muchavista",
         line: 3,
         orderUp:12,
-        orderDown: 6
+        orderDown: 6,
+        coordinates: [
+          -0.40673017501831055,
+          38.3968369033324
+        ]
       },
       {
         name: "Pla Barraques",
         line: 3,
         orderUp:16,
-        orderDown: 2
+        orderDown: 2,
+        coordinates: [
+          -0.39697766304016113,
+          38.42063740952858
+        ]
       },
       {
         name: "Salesians",
         line: 3,
         orderUp:15,
-        orderDown: 3
+        orderDown: 3,
+        coordinates: [
+          -0.39772868156433105,
+          38.4163839911561
+        ]
       },
       {
         name: "Sangueta",
         line: 3,
         orderUp:4,
-        orderDown: 14
+        orderDown: 14,
+        coordinates: [
+          -0.46751439571380615,
+          38.352115158775476
+        ]
       }
     ];
 

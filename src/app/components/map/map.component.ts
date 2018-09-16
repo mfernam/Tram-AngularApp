@@ -31,7 +31,7 @@ export class MapComponent implements OnInit{
   constructor(private lineService:LineService,
               private activateRoute:ActivatedRoute){
               
-    this._stops = lineService.getStops("Linea 1")
+    this._stops = lineService.getStops("Linea 3")
     this.setMarkers(this._stops);
   }
 
@@ -51,7 +51,7 @@ export class MapComponent implements OnInit{
 
   layersControl = {  
     overlays: {
-      "Line 1":this.markersLayer
+      "Linea":this.markersLayer
     },   
       baseLayers: {
         'Street Maps': streetMaps,
