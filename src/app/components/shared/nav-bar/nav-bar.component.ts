@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { LineService} from '../../../services/lines.service';
 import { ILine } from '../../../interfaces/line.interface';
+import { IStop } from '../../../interfaces/stop.interface';
 
 @Component({
   selector: "app-nav-bar",
@@ -12,6 +13,7 @@ export class NavBarComponent  {
   
   _lines:ILine[]=[];
   _line:ILine;
+  stopName:string="";
 
   constructor(private lineService:LineService,
     private _router:Router) {
@@ -29,7 +31,9 @@ export class NavBarComponent  {
      
    }
 
-  searchStop(nameLine:string){
-
+  searchStop(){
+    if(this.stopName!=""){
+     this._router.navigate(['/map',this.stopName]);
+    }
   }
 }

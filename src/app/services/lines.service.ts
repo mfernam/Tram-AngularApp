@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { ILine } from '../interfaces/line.interface';
 import { IStop } from '../interfaces/stop.interface';
-import { forEach } from '@angular/router/src/utils/collection';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class LineService {
+  _stop:IStop;
   _stopsLinea1:any[]=[
     {
       name: "Alicante - Luceros",
@@ -424,4 +425,13 @@ export class LineService {
    }
   }
 
+  public getStop(stopName:string){
+    this._stopsLinea1.map(x=>{
+      if(x.name.toLowerCase()==stopName.toLowerCase()){
+        this._stop = x;
+        return this._stop;
+      }
+    });
+
+    }
 }

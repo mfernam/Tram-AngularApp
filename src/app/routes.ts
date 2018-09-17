@@ -7,7 +7,7 @@ const APP_ROUTES: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'map', component: MapComponent },
   { path: 'map/:idLine', component: MapComponent },
-  { path: 'stopLine/:idLine', component: StopLineComponent },
+  { path: 'map/:stopName', component: StopLineComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 

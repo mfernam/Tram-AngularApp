@@ -1,6 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { icon, latLng, marker, tileLayer, Layer,LayerGroup  } from 'leaflet';
+import { icon, latLng, marker, tileLayer, Layer, FeatureGroup, LatLng, Map, LatLngBounds,latLngBounds,point   } from 'leaflet';
 import { LineService } from '../../services/lines.service';
 
 const streetMaps = tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -25,37 +25,40 @@ const streetMaps = tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png
 })
 export class MapComponent implements OnInit{
   _stops:any[]=[];
-  _markers:Layer[] = [];
-  markersLayer:LayerGroup = new LayerGroup();
+  _markersLayer:FeatureGroup<Layer> = new FeatureGroup();
+  _center:LatLng = latLng([ 38.351905, -0.486855 ]);
+  _bounds:LatLngBounds = latLngBounds ([38.470256117005015, -0.3264999389648438],[ 38.26972361264482,  -0.6437301635742189]);
+
+  _options = {
+    layers: [ this._markersLayer, streetMaps ],
+    center: this._center,
+    bounds:this._bounds
+  };
 
   constructor(private lineService:LineService,
               private activateRoute:ActivatedRoute){
                 
   }
-  onMapReady(map) {
-    setTimeout(() => {map.invalidateSize(true)},1000);
-    // map.invalidateSize(true);
-    }
+  
 
   ngOnInit() {
     this.activateRoute.params.subscribe(params=>{
       if(params['idLine']!= null){
-        this.markersLayer.clearLayers();
+        this._markersLayer.clearLayers();
         this._stops = this.lineService.getStops(params['idLine']);
         this.setMarkers(this._stops);
+        this._center = this._markersLayer.getBounds().getCenter();
+        this._bounds = this._markersLayer.getBounds();
+        console.log(this._bounds);
       }
     })
   }
   
-  options = {
-      layers: [ this.markersLayer, streetMaps ],
-      zoom: 12,
-      center: latLng([ 38.351905, -0.486855 ])
-    };
+  
 
   layersControl = {  
     overlays: {
-      "Linea":this.markersLayer
+      "Linea":this._markersLayer
     },   
       baseLayers: {
         'Street Maps': streetMaps,
@@ -63,17 +66,17 @@ export class MapComponent implements OnInit{
         'PNOA': pnoaWMS
       }
     };
-
+    
     setMarkers(stops:any[]){
       for(let stop of stops){
         const newMarker = marker([stop.coordinates[1],stop.coordinates[0]],{
           icon: icon({
-            iconSize: [ 25, 41 ],
-            iconAnchor: [ 13, 41 ],
+            iconSize: [ 25, 31 ],
+            iconAnchor: [ 23, 35 ],
             iconUrl: 'assets/images/train.png'
           })
         });
-        this.markersLayer.addLayer(newMarker.bindPopup(stop.name));
+        this._markersLayer.addLayer(newMarker.bindPopup(stop.name));
       }
     }
 

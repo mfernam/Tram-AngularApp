@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 /*ROUTES*/
 import { APP_ROUTING } from './routes';
 /*SERVICES*/
@@ -30,7 +31,9 @@ import { StopLineComponent } from './components/stop-line/stop-line.component';
     NgbModule,
     BrowserModule,
     APP_ROUTING,
-    LeafletModule.forRoot()
+    LeafletModule.forRoot(),
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     MapService,
