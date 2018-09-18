@@ -4,12 +4,14 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 /*ROUTES*/
 import { APP_ROUTING } from './routes';
 /*SERVICES*/
 import { MapService } from './services/map.service';
 import { LineService } from './services/lines.service';
 import { SearchService } from './services/search.service';
+import { StopsService } from './services/stops.service';
 /*COMPONENTS*/
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/shared/nav-bar/nav-bar.component';
@@ -33,12 +35,14 @@ import { StopLineComponent } from './components/stop-line/stop-line.component';
     APP_ROUTING,
     LeafletModule.forRoot(),
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     MapService,
     SearchService,
-    LineService
+    LineService,
+    StopsService
   ],
   bootstrap: [
     AppComponent,

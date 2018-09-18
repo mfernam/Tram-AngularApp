@@ -1,7 +1,8 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { icon, latLng, marker, tileLayer, Layer, FeatureGroup, LatLng, Map, LatLngBounds,latLngBounds,point   } from 'leaflet';
+import { icon, latLng, marker, tileLayer, Layer, FeatureGroup, LatLng, LatLngBounds,latLngBounds   } from 'leaflet';
 import { LineService } from '../../services/lines.service';
+import { IStop } from '../../interfaces/stop.interface';
 
 const streetMaps = tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     detectRetina: true,
@@ -25,6 +26,7 @@ const streetMaps = tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png
 })
 export class MapComponent implements OnInit{
   _stops:any[]=[];
+  _allStops:IStop[] = [];
   _markersLayer:FeatureGroup<Layer> = new FeatureGroup();
   _center:LatLng = latLng([ 38.351905, -0.486855 ]);
   _bounds:LatLngBounds = latLngBounds ([38.470256117005015, -0.3264999389648438],[ 38.26972361264482,  -0.6437301635742189]);
@@ -38,10 +40,10 @@ export class MapComponent implements OnInit{
   constructor(private lineService:LineService,
               private activateRoute:ActivatedRoute){
                 
-  }
-  
+  }  
 
   ngOnInit() {
+    
     this.activateRoute.params.subscribe(params=>{
       if(params['idLine']!= null){
         this._markersLayer.clearLayers();
@@ -49,12 +51,9 @@ export class MapComponent implements OnInit{
         this.setMarkers(this._stops);
         this._center = this._markersLayer.getBounds().getCenter();
         this._bounds = this._markersLayer.getBounds();
-        console.log(this._bounds);
       }
-    })
+    });
   }
-  
-  
 
   layersControl = {  
     overlays: {
@@ -66,7 +65,7 @@ export class MapComponent implements OnInit{
         'PNOA': pnoaWMS
       }
     };
-    
+
     setMarkers(stops:any[]){
       for(let stop of stops){
         const newMarker = marker([stop.coordinates[1],stop.coordinates[0]],{

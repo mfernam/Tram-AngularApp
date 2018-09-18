@@ -1,13 +1,19 @@
 import { Injectable } from '@angular/core';
 import { ILine } from '../interfaces/line.interface';
 import { IStop } from '../interfaces/stop.interface';
-import { Observable } from 'rxjs';
 
 @Injectable()
-export class LineService {
-  _stop:IStop;
-  _stopsLinea1:any[]=[
-    {
+export class LineService{
+  _stopLine:IStop = {
+    name:"",
+    line: 0,
+    orderUp:0,
+    orderDown: 0,
+    coordinates: [0,0] 
+
+  };
+  _stopsLine1:IStop[]=
+   [ {
       name: "Alicante - Luceros",
       line: 1,
       orderUp:1,
@@ -138,7 +144,7 @@ export class LineService {
         ]    
     },
     {
-        name: "Marq - Castillo",
+        name: "MARQ - Castillo",
         line: 1,
         orderUp:3,
         orderDown: 18,
@@ -207,9 +213,151 @@ export class LineService {
           38.477009353029615
         ]  
     }];
-
-    _stopsLinea3:any[]=[
+  
+  _stopsLine2:IStop[]=
+     [ {
+        name: "Alicante - Luceros",
+        line: 2,
+        orderUp:1,
+        orderDown: 14,
+        coordinates: [
+          -0.49060821533203125,
+          38.34613278145565
+        ] 
+      },
       {
+        name: "Bulevar del Pla",
+        line: 2,
+        orderUp:6,
+        orderDown: 12,
+        coordinates: [
+          -0.47232627868652344,
+          38.360225497138515
+        ] 
+      },
+      {
+        name: "Ciudad Jardín",
+        line: 2,
+        orderUp:6,
+        orderDown: 12,
+        coordinates: [
+          -0.4969704151153564,
+          38.37597243866343
+        ] 
+      },
+      {
+        name: "Garbinet",
+        line: 2,
+        orderUp:6,
+        orderDown: 12,
+        coordinates: [
+          -0.47838807106018066,
+          38.362501108313076
+        ] 
+      },
+      {
+        name: "Gastón Castelló",
+        line: 2,
+        orderUp:6,
+        orderDown: 12,
+        coordinates: [
+          -0.48712134361267095,
+          38.37390753015954
+        ] 
+      },
+      {
+        name: "Hospital",
+        line: 2,
+        orderUp:6,
+        orderDown: 12,
+        coordinates: [
+          -0.48392951488494873,
+          38.36437286055636
+        ] 
+      },
+      {
+        name: "La Goteta - Plaza Mar 2",
+        line: 3,
+        orderUp:6,
+        orderDown: 12,
+        coordinates: [
+          -0.4693436622619629,
+          38.354588739996686
+        ] 
+      },
+      {
+        name: "Maestro Alonso",
+        line: 2,
+        orderUp:6,
+        orderDown: 12,
+        coordinates: [
+          -0.48587143421173096,
+          38.36827183844822
+        ] 
+      },
+      {
+        name: "MARQ - Castillo",
+        line: 2,
+        orderUp:3,
+        orderDown: 12,
+        coordinates: [
+          -0.47623157501220703,
+          38.352106745089706
+        ] 
+      },
+      {
+        name: "Mercado",
+        line: 2,
+        orderUp:6,
+        orderDown: 13,
+        coordinates: [
+          -0.4845035076141358,
+          38.348295244914475
+        ] 
+      },
+      {
+        name: "San Vicente del Raspeig",
+        line: 2,
+        orderUp:6,
+        orderDown: 12,
+        coordinates: [
+          -0.5171298980712891,
+          38.3922331103936
+        ] 
+      },
+      {
+        name: "Santa Isabel",
+        line: 2,
+        orderUp:6,
+        orderDown: 12,
+        coordinates: [
+          -0.5045074224472046,
+          38.38184722256884
+        ] 
+      },
+      {
+        name: "Universitat",
+        line: 2,
+        orderUp:6,
+        orderDown: 12,
+        coordinates: [
+          -0.5110466480255127,
+          38.38717911160584
+        ] 
+      },
+      {
+        name: "Virgen del Remedio",
+        line: 2,
+        orderUp:6,
+        orderDown: 12,
+        coordinates: [
+          -0.49056529998779297,
+          38.37662848687038
+        ] 
+      }];
+
+_stopsLine3:IStop[]=
+    [  {
         name: "Albufereta",
         line: 3,
         orderUp:6,
@@ -379,36 +527,39 @@ export class LineService {
           38.352115158775476
         ]
       }
-    ];
+  ]];
 
+  _lines:ILine[] = [];
+    
   //#region Tram lines objects
   _linea1:ILine={
     id: "L1",
     name: "Linea 1",
-    Stops: this._stopsLinea1
+    Stops: this._stopsLine1//this.allStops.map(x=>x.line==1?x:this._stopLine)
   }
   _linea2:ILine={
     id: "L2",
     name: "Linea 2",
-    Stops: []
+    Stops: this._stopsLine2//this.allStops.map(x=>x.line==2?x:this._stopLine)
   }
   _linea3:ILine={
     id: "L3",
     name: "Linea 3",
-    Stops: this._stopsLinea3
+    Stops: this._stopsLine3//this.allStops.map(x=>x.line==3?x:this._stopLine)
   }  
   _linea4:ILine={
     id: "L4",
     name: "Linea 4",
-    Stops: []
+    Stops: []//this.allStops.map(x=>x.line==4?x:this._stopLine)
   }
   _linea9:ILine={
     id: "L9",
     name: "Linea 9",
-    Stops: []
+    Stops: []//this.allStops.map(x=>x.line==9?x:this._stopLine)
   }
    _lineas:ILine[]=[
      this._linea1,
+     this._linea2,
      this._linea3
    ];
    //#endregion
@@ -426,12 +577,8 @@ export class LineService {
   }
 
   public getStop(stopName:string){
-    this._stopsLinea1.map(x=>{
-      if(x.name.toLowerCase()==stopName.toLowerCase()){
-        this._stop = x;
-        return this._stop;
-      }
-    });
-
+    this._lineas.forEach(
+      s=>s.Stops.map(
+        x=>(x.name.toLowerCase()==stopName.toLowerCase())?x:""));
     }
 }

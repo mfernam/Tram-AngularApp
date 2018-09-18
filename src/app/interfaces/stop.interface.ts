@@ -5,5 +5,6 @@ export interface IStop {
     arriveHour?:string[],
     exitHour?:string[],
     orderUp?:number,
-    orderDown?:number    
+    orderDown?:number,
+    coordinates:any[];  
 }

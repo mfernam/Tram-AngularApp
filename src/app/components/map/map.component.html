@@ -1,7 +1,6 @@
 <div class="map"
              leaflet
-             [leafletOptions]="_options"
-             
+             [leafletOptions]="_options"             
              [leafletLayersControl]="layersControl"
              (leafletClick)="getCoords($event)"
              [leafletFitBounds]="_bounds">
