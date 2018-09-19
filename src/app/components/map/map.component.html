@@ -3,5 +3,6 @@
              [leafletOptions]="_options"             
              [leafletLayersControl]="layersControl"
              (leafletClick)="getCoords($event)"
-             [leafletFitBounds]="_bounds">
+             [leafletFitBounds]="_bounds"
+             (leafletMapReady)="onMapReady($event)">
 </div>

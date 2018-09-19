@@ -24,13 +24,14 @@ const streetMaps = tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
 })
-export class MapComponent implements OnInit{
+export class MapComponent implements OnInit,OnDestroy{
   _stops:any[]=[];
   _allStops:IStop[] = [];
   _markersLayer:FeatureGroup<Layer> = new FeatureGroup();
   _center:LatLng = latLng([ 38.351905, -0.486855 ]);
   _bounds:LatLngBounds = latLngBounds ([38.470256117005015, -0.3264999389648438],[ 38.26972361264482,  -0.6437301635742189]);
-
+  
+  map:any;
   _options = {
     layers: [ this._markersLayer, streetMaps ],
     center: this._center,
@@ -54,6 +55,14 @@ export class MapComponent implements OnInit{
       }
     });
   }
+
+  ngOnDestroy() {
+    this.map.remove();
+  }
+
+  onMapReady(map: L.Map) {
+    this.map = map;
+ }
 
   layersControl = {  
     overlays: {
