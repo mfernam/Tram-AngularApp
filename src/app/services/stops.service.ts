@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({  
-  providedIn: 'root'
+  
   })
+
+ _allStops:IStop[]=STOPS;
 export class StopsService {
   stopsJSONUrl:string = '../../../assets/data/stops.json';
   
-  constructor(private _httpClient: HttpClient) {
+  constructor() {
 
   }
   
-  getStops(): Observable<any> {
-    return this._httpClient.get(this.stopsJSONUrl);            
+  getStops() {
+    return this._allStops;            
   }
 
 }
