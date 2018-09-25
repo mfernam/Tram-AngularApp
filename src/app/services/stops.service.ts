@@ -7,7 +7,6 @@ import { Observable } from 'rxjs';
 
  _allStops:IStop[]=STOPS;
 export class StopsService {
-  stopsJSONUrl:string = '../../../assets/data/stops.json';
   
   constructor() {
 
@@ -16,5 +15,19 @@ export class StopsService {
   getStops() {
     return this._allStops;            
   }
+  
+  getStop(term) {
+        var listOfStops =  this._allStops
+        .pipe(
+            debounceTime(500),  
+            map(
+                (data: any) => {
+                    return (
+                        data.length != 0 ? data as any[] : [{"name": "No Record Found"} as any]
+                    );
+                }
+        ));
+        return listOfStops; 
+  }  
 
 }
