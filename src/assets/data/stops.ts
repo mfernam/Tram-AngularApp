@@ -6,6 +6,8 @@ export const STOPS:IStop[] =[
           "line": 1,
           "orderUp":1,
           "orderDown": 20,
+          "arriveHour": [],
+          "exitHour": [],
           "coordinates": [
             -0.49060821533203125,
             38.34613278145565
@@ -26,6 +28,8 @@ export const STOPS:IStop[] =[
             "line": 1,
             "orderUp":20,
             "orderDown": 1 ,
+          "arriveHour": [],
+          "exitHour": [],
             "coordinates": [
               -0.13492584228515625,
               38.54816542304656
@@ -36,6 +40,8 @@ export const STOPS:IStop[] =[
             "line": 1,
             "orderUp":18,
             "orderDown": 3,
+          "arriveHour": [],
+          "exitHour": [],
             "coordinates": [
               -0.1750892400741577,
               38.540705564177024
@@ -46,6 +52,8 @@ export const STOPS:IStop[] =[
             "line": 1,
             "orderUp":11,
             "orderDown": 10,
+          "arriveHour": [],
+          "exitHour": [],
             "coordinates": [
               -0.35301089286804194,
               38.454046610053666
@@ -56,6 +64,8 @@ export const STOPS:IStop[] =[
             "line": 1,
             "orderUp":16,
             "orderDown": 5,
+          "arriveHour": [],
+          "exitHour": [],
             "coordinates": [
               -0.22006988525390622,
               38.51365394151274
@@ -66,6 +76,8 @@ export const STOPS:IStop[] =[
             "line": 1,
             "orderUp":10,
             "orderDown": 11,
+          "arriveHour": [],
+          "exitHour": [],
             "coordinates": [
               -0.36451220512390137,
               38.450227877897674
@@ -76,6 +88,8 @@ export const STOPS:IStop[] =[
             "line": 1,
             "orderUp":15,
             "orderDown": 6,
+          "arriveHour": [],
+          "exitHour": [],
             "coordinates": [
               -0.23160338401794434,
               38.51014479500316
@@ -86,6 +100,8 @@ export const STOPS:IStop[] =[
             "line": 1,
             "orderUp":7,
             "orderDown": 14,
+          "arriveHour": [],
+          "exitHour": [],
             "coordinates": [
               -0.39488017559051514,
               38.428050872075374
@@ -96,6 +112,8 @@ export const STOPS:IStop[] =[
             "line": 1,
             "orderUp":17,
             "orderDown": 4,
+          "arriveHour": [],
+          "exitHour": [],
             "coordinates": [
               -0.19939541816711426,
               38.53071871520048
@@ -106,6 +124,8 @@ export const STOPS:IStop[] =[
             "line": 1,
             "orderUp":5,
             "orderDown": 16,
+          "arriveHour": [],
+          "exitHour": [],
             "coordinates": [
               -0.44756412506103516,
               38.362475870873475
@@ -116,6 +136,8 @@ export const STOPS:IStop[] =[
             "line": 1,
             "orderUp":14,
             "orderDown": 7,
+          "arriveHour": [],
+          "exitHour": [],
             "coordinates": [
               -0.23671030998229983,
               38.50585467303399
@@ -126,6 +148,8 @@ export const STOPS:IStop[] =[
             "line": 1,
             "orderUp":6,
             "orderDown": 15,
+          "arriveHour": [],
+          "exitHour": [],
             "coordinates": [
               -0.4388415813446045,
               38.37003409070623
@@ -136,6 +160,8 @@ export const STOPS:IStop[] =[
             "line": 1,
             "orderUp":3,
             "orderDown": 18,
+            "arriveHour": [],
+            "exitHour": [],
             "coordinates": [
               -0.47623157501220703,
               38.352106745089706
@@ -146,6 +172,11 @@ export const STOPS:IStop[] =[
             "line": 1,
             "orderUp":2,
             "orderDown": 19,
+            "arriveHour": [],
+            "exitHour": ["05:43","06:17","06:51","07:21","07:51","08:21","08:51","09:21", "09:51",
+                      "10:21 10:51","11:21 11:51","12:21 12:51","13:21 13:51","14:21 14:51","15:21 15:51",
+                      "16:21 16:51","17:21 17:51","18:21 18:51","19:21 19:51","20:21 20:51",
+                         "21:21 21:37 21:51","22:01 22:24 22:30 22:54","23:00","23:26", "23:56"],
             "coordinates": [
               -0.4845035076141358,
               38.348295244914475
