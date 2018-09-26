@@ -13,9 +13,15 @@
             </select>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" [(ngModel)]="stopName" type="search" placeholder="Search stop" aria-label="Search"
-        (keyup.enter)="searchStop(searchStop.name)" #searchStop name="stopName">
-        <!--<button class="btn btn-outline-default my-2 my-sm-0" type="submit">Search</button>-->
-      </form>
+      <form class="form-inline my-2 my-lg-0" name="searcherForm">
+        <input class="form-control mr-sm-2" [(ngModel)]="name" type="search" placeholder="Search stop" aria-label="Search"
+        (keyup.enter)="searchStop()" #searchStop name="stopName">
+      <!--<input [ngModel]="stopName" placeholder="Search stop">
+      <ul class="list-group" *ngIf="name">
+        <li *ngFor="let stop of _stops | name" class="list-group-item">
+          {{ stop.name }}
+        </li>
+      </ul>-->
+
+    </form>
   </nav>

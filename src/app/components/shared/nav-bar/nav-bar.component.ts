@@ -1,28 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LineService} from '../../../services/lines.service';
 import { ILine } from '../../../interfaces/line.interface';
-import { IStop } from '../../../interfaces/stop.interface';
+import { StopsService } from '../../../services/stops.service';
+import { FormControl } from '@angular/forms';
+import { StopNamePipe} from '../../../pipes/stop-name.pipe';
 
 @Component({
   selector: "app-nav-bar",
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css']
 })
-export class NavBarComponent  {
+export class NavBarComponent  implements OnInit{
   
   _lines:ILine[]=[];
   _line:ILine;
+  _stops:any[]=[];
   stopName:string="";
-
-  constructor(private lineService:LineService,
+  searcherForm:FormControl;
+  filteredOptions: any[];
+  
+  constructor(private lineService:LineService,private stopService:StopsService,
     private _router:Router) {
     this._lines = this.lineService.getLines();
-   }
-    
-   getStops(lineName:string){
-    this.lineService.getStops(lineName);
-   }
+    this._stops = this.stopService.getStops();
+   }    
+   ngOnInit(): void {
+    this._stops = this.stopService.getStops();
+  }
 
    getLine(idLine:string){
      if(idLine!="0"){

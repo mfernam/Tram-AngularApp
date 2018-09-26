@@ -19,6 +19,7 @@ import { MapComponent } from './components/map/map.component';
 import { HomeComponent } from './components/home/home.component';
 import { ResultComponent } from './components/result/result.component';
 import { StopLineComponent } from './components/stop-line/stop-line.component';
+import { StopNamePipe } from './pipes/stop-name.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { StopLineComponent } from './components/stop-line/stop-line.component';
     MapComponent,
     HomeComponent,
     ResultComponent,
-    StopLineComponent
+    StopLineComponent,
+    StopNamePipe
   ],
   imports: [
     NgbModule,

@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { IStop } from '../interfaces/stop.interface';
+import { STOPS } from '../../assets/data/stops';
 
-@Injectable({  
-  
-  })
+@Injectable()
 
- _allStops:IStop[]=STOPS;
 export class StopsService {
   
+ _allStops:IStop[]=STOPS;
   constructor() {
 
   }
@@ -16,8 +15,8 @@ export class StopsService {
     return this._allStops;            
   }
   
-  getStop(term) {
-        var listOfStops =  this._allStops
+  /*getStop(term) {
+        var listOfStops =  this._allStops.
         .pipe(
             debounceTime(500),  
             map(
@@ -28,6 +27,6 @@ export class StopsService {
                 }
         ));
         return listOfStops; 
-  }  
+  }  */
 
 }
